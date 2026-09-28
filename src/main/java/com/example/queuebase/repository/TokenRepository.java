@@ -19,9 +19,15 @@ public interface TokenRepository extends JpaRepository<Token, Long> {
 
 	List<Token> findAllByOrderByTokenNumberAsc();
 
+	List<Token> findByDoctor_IdAndTokenDateOrderByTokenNumberAsc(Long doctorId, LocalDate tokenDate);
+
 	List<Token> findByStatus(TokenStatus status);
 
+	List<Token> findByDoctor_IdAndTokenDateAndStatus(Long doctorId, LocalDate tokenDate, TokenStatus status);
+
 	List<Token> findByPriorityTrue();
+
+	List<Token> findByDoctor_IdAndTokenDateAndPriorityTrue(Long doctorId, LocalDate tokenDate);
 
 	@Query("SELECT MAX(token.tokenNumber) FROM Token token "
 			+ "WHERE token.doctor.id = :doctorId AND token.tokenDate = :tokenDate")
