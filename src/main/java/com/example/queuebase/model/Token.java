@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Token {
@@ -34,10 +35,12 @@ public class Token {
 
 	@ManyToOne
 	@JoinColumn(name = "doctor_id")
+	@NotNull
 	private Doctor doctor;
 
 	@ManyToOne
 	@JoinColumn(name = "patient_id")
+	@NotNull
 	private Patient patient;
 
 	public Token() {

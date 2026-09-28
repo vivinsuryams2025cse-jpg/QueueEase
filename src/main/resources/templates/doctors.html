@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Doctors | QueueBase</title><link rel="stylesheet" th:href="@{/css/queuebase.css}"><script defer th:src="@{/js/queuebase.js}"></script>
+</head>
+<body data-page="doctors">
+<div th:replace="~{fragments :: header('doctors')}"></div>
+<main class="page-shell">
+    <section class="page-heading"><div><p class="eyebrow">CLINIC DIRECTORY</p><h1>Doctors</h1><p class="subheading">Manage specialties, consultation times, and availability.</p></div></section>
+    <div class="workspace-grid">
+        <section class="content-panel form-panel"><div class="section-heading"><div><p class="eyebrow">DOCTOR DETAILS</p><h2 id="doctor-form-title">Add doctor</h2></div></div>
+            <form id="doctor-form" class="stack-form">
+                <label>Full name<input name="name" required maxlength="120" autocomplete="name"></label>
+                <label>Specialization<input name="specialization" required maxlength="120"></label>
+                <label>Average consultation (minutes)<input name="averageConsultationMinutes" type="number" min="1" required></label>
+                <label>Availability<select name="active" required><option value="true">Active</option><option value="false">Inactive</option></select></label>
+                <div class="form-actions"><button class="button button-primary" type="submit" id="doctor-submit">Save doctor</button><button class="button button-quiet" type="reset" id="doctor-cancel" hidden>Cancel edit</button></div>
+                <p class="notice" id="doctor-notice" role="status"></p>
+            </form>
+        </section>
+        <section class="content-panel"><div class="section-heading"><div><p class="eyebrow">REGISTERED TEAM</p><h2>Doctor list</h2></div><span class="count-label" id="doctor-list-count">—</span></div>
+            <div class="table-scroll"><table><thead><tr><th>Name</th><th>Specialization</th><th>Avg. time</th><th>Status</th><th>Actions</th></tr></thead><tbody id="doctor-rows"></tbody></table></div>
+        </section>
+    </div>
+</main>
+</body>
+</html>

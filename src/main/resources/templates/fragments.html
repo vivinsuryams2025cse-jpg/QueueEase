@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header class="topbar" th:fragment="header(active)">
+    <a class="brand" th:href="@{/}" aria-label="QueueBase home">
+        <span class="brand-mark">Q</span>
+        <span class="brand-name">QUEUE<span>BASE</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+        <a th:href="@{/dashboard}" th:classappend="${active == 'dashboard'} ? ' is-active' : ''">Dashboard</a>
+        <a th:href="@{/ui/doctors}" th:classappend="${active == 'doctors'} ? ' is-active' : ''">Doctors</a>
+        <a th:href="@{/ui/patients}" th:classappend="${active == 'patients'} ? ' is-active' : ''">Patients</a>
+        <a th:href="@{/ui/token}" th:classappend="${active == 'token'} ? ' is-active' : ''">Generate token</a>
+        <a th:href="@{/ui/queue}" th:classappend="${active == 'queue'} ? ' is-active' : ''">Queue</a>
+        <a th:href="@{/ui/history}" th:classappend="${active == 'history'} ? ' is-active' : ''">History</a>
+    </nav>
+    <div class="topbar-state"><span></span> OPD OPERATIONS</div>
+</header>
+</body>
+</html>

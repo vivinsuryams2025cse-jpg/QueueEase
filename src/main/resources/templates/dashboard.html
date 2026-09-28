@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | QueueBase</title>
+    <link rel="stylesheet" th:href="@{/css/queuebase.css}">
+    <script defer th:src="@{/js/queuebase.js}"></script>
+</head>
+<body data-page="dashboard">
+<div th:replace="~{fragments :: header('dashboard')}"></div>
+<main class="page-shell">
+    <section class="page-heading">
+        <div><p class="eyebrow">MONDAY CARE, MADE CLEAR</p><h1>Today's dashboard</h1><p class="subheading" id="today-date"></p></div>
+        <a class="button button-primary" th:href="@{/ui/token}">＋ Generate token</a>
+    </section>
+    <section class="stat-grid" aria-label="Clinic totals">
+        <article class="stat-card stat-green"><span>REGISTERED DOCTORS</span><strong id="doctor-count">—</strong><small>Across the clinic</small></article>
+        <article class="stat-card stat-coral"><span>REGISTERED PATIENTS</span><strong id="patient-count">—</strong><small>Patient directory</small></article>
+        <article class="stat-card stat-gold"><span>TOKENS IN SYSTEM</span><strong id="token-count">—</strong><small>Most recent records</small></article>
+        <article class="stat-card stat-blue"><span>ACTIVE DOCTORS</span><strong id="active-doctor-count">—</strong><small>Available for tokens</small></article>
+    </section>
+    <section class="content-panel">
+        <div class="section-heading"><div><p class="eyebrow">LATEST ACTIVITY</p><h2>Recent tokens</h2></div><a class="text-link" th:href="@{/ui/history}">View history <span aria-hidden="true">→</span></a></div>
+        <p class="notice" id="dashboard-notice" role="status"></p>
+        <div class="table-scroll"><table><thead><tr><th>Token</th><th>Patient</th><th>Doctor</th><th>Status</th><th>Wait</th></tr></thead><tbody id="recent-token-rows"></tbody></table></div>
+    </section>
+</main>
+</body>
+</html>

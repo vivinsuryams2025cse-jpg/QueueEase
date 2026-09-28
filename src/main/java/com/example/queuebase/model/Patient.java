@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 
 @Entity
@@ -25,8 +26,10 @@ public class Patient {
 	private Integer age;
 
 	@NotBlank
+	@Pattern(regexp = "^\\+?[0-9][0-9() .-]{5,20}[0-9]$", message = "Enter a valid phone number.")
 	private String phone;
 
+	@NotBlank
 	private String gender;
 
 	public Patient() {

@@ -49,6 +49,10 @@ public class PatientService {
 		return patientRepository.save(patient);
 	}
 
+	public void deletePatient(Long id) {
+		patientRepository.delete(getPatientById(id));
+	}
+
 	private void validatePatient(Patient patient) {
 		Set<ConstraintViolation<Patient>> violations = validator.validate(patient);
 		if (!violations.isEmpty()) {

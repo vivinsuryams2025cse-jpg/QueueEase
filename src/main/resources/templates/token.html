@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generate token | QueueBase</title><link rel="stylesheet" th:href="@{/css/queuebase.css}"><script defer th:src="@{/js/queuebase.js}"></script>
+</head>
+<body data-page="token">
+<div th:replace="~{fragments :: header('token')}"></div>
+<main class="page-shell">
+    <section class="page-heading"><div><p class="eyebrow">NEW OUTPATIENT VISIT</p><h1>Generate token</h1><p class="subheading">Choose a doctor and patient to join today's queue.</p></div></section>
+    <div class="workspace-grid token-grid">
+        <section class="content-panel form-panel"><div class="section-heading"><div><p class="eyebrow">VISIT DETAILS</p><h2>Token registration</h2></div></div>
+            <form id="token-form" class="stack-form">
+                <label>Doctor<select id="token-doctor" required><option value="">Loading doctors…</option></select></label>
+                <label>Patient<select id="token-patient" required><option value="">Loading patients…</option></select></label>
+                <label class="check-row"><input id="token-priority" type="checkbox"><span>Priority / emergency</span></label>
+                <button class="button button-primary" type="submit">Generate token <span aria-hidden="true">→</span></button>
+                <p class="notice" id="token-notice" role="status"></p>
+            </form>
+        </section>
+        <section class="token-result" id="token-result" hidden aria-live="polite">
+            <p class="eyebrow">TOKEN GENERATED</p><div class="result-number" id="result-number">—</div>
+            <div class="result-rule"></div>
+            <dl><div><dt>Patient</dt><dd id="result-patient">—</dd></div><div><dt>Doctor</dt><dd id="result-doctor">—</dd></div><div><dt>Estimated wait</dt><dd id="result-wait">—</dd></div><div><dt>Status</dt><dd id="result-status">—</dd></div></dl>
+            <p class="priority-label" id="result-priority" hidden>PRIORITY / EMERGENCY</p>
+        </section>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QueueBase | OPD Operations</title>
+    <link rel="stylesheet" th:href="@{/css/queuebase.css}">
+    <script defer th:src="@{/js/queuebase.js}"></script>
+</head>
+<body data-page="home">
+<div th:replace="~{fragments :: header('dashboard')}"></div>
+<main class="page-shell">
+    <section class="home-intro">
+        <div class="home-copy">
+            <p class="eyebrow">OUTPATIENT DEPARTMENT <span>•</span> LIVE WORKSPACE</p>
+            <h1>Keep every visit<br><em>moving clearly.</em></h1>
+            <p class="intro-copy">OPD Token and Queue Management System for doctors, patients, and the day's queue.</p>
+            <a class="button button-primary" th:href="@{/dashboard}">Open today's dashboard <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="home-photo-wrap">
+            <img class="home-photo" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Clinicians reviewing patient information together">
+            <div class="photo-caption"><span class="live-dot"></span><span>CLINIC OPERATIONS</span><strong>QueueBase</strong></div>
+        </div>
+    </section>
+
+    <section class="home-lower" aria-label="Quick access">
+        <div>
+            <p class="eyebrow">QUICK ACCESS</p>
+            <h2>Start with the next task.</h2>
+        </div>
+        <div class="quick-links">
+            <a class="quick-link" th:href="@{/ui/token}"><span class="quick-index">01</span><span><strong>Generate a token</strong><small>Register a visit and estimate the wait</small></span><b aria-hidden="true">↗</b></a>
+            <a class="quick-link" th:href="@{/ui/queue}"><span class="quick-index">02</span><span><strong>Manage the queue</strong><small>View waiting patients and call the next</small></span><b aria-hidden="true">↗</b></a>
+            <a class="quick-link" th:href="@{/ui/history}"><span class="quick-index">03</span><span><strong>Review token history</strong><small>Look up a doctor's queue by date</small></span><b aria-hidden="true">↗</b></a>
+        </div>
+    </section>
+    <footer class="app-footer">QUEUEBASE <span>•</span> OPD TOKEN AND QUEUE MANAGEMENT</footer>
+</main>
+</body>
+</html>

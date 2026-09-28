@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live queue | QueueBase</title><link rel="stylesheet" th:href="@{/css/queuebase.css}"><script defer th:src="@{/js/queuebase.js}"></script>
+</head>
+<body data-page="queue">
+<div th:replace="~{fragments :: header('queue')}"></div>
+<main class="page-shell">
+    <section class="page-heading queue-heading"><div><p class="eyebrow">LIVE OPERATIONS</p><h1>Doctor queue</h1><p class="subheading">Priority waiting tokens are shown first. Serving tokens stay in place until advanced.</p></div><label class="compact-label">Doctor<select id="queue-doctor"><option value="">Loading doctors…</option></select></label></section>
+    <p class="notice" id="queue-notice" role="status"></p>
+    <section class="current-strip"><div class="current-meta"><p class="eyebrow">NOW SERVING</p><strong id="current-token-number">—</strong></div><div class="current-person"><span>Patient</span><strong id="current-patient">No patient currently serving</strong></div><div class="current-doctor"><span>Doctor</span><strong id="current-doctor">—</strong></div><button class="button button-primary" id="next-patient" type="button">Next patient <span aria-hidden="true">→</span></button></section>
+    <section class="content-panel"><div class="section-heading"><div><p class="eyebrow">WAITING ROOM</p><h2>Waiting tokens</h2></div><span class="count-label" id="queue-count">—</span></div>
+        <div class="table-scroll"><table><thead><tr><th>Token</th><th>Patient</th><th>Priority</th><th>Estimated wait</th><th>Action</th></tr></thead><tbody id="queue-rows"></tbody></table></div>
+    </section>
+</main>
+</body>
+</html>

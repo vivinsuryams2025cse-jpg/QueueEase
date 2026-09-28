@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Token history | QueueBase</title><link rel="stylesheet" th:href="@{/css/queuebase.css}"><script defer th:src="@{/js/queuebase.js}"></script>
+</head>
+<body data-page="history">
+<div th:replace="~{fragments :: header('history')}"></div>
+<main class="page-shell">
+    <section class="page-heading"><div><p class="eyebrow">DAILY RECORDS</p><h1>Token history</h1><p class="subheading">Review a doctor's tokens for a selected day.</p></div></section>
+    <section class="content-panel filter-panel"><label>Doctor<select id="history-doctor"><option value="">Loading doctors…</option></select></label><label>Date<input id="history-date" type="date"></label><button class="button button-primary" id="history-search" type="button">Show history</button></section>
+    <p class="notice" id="history-notice" role="status"></p>
+    <section class="content-panel"><div class="section-heading"><div><p class="eyebrow">QUEUE RECORD</p><h2 id="history-title">Select a doctor and date</h2></div><span class="count-label" id="history-count">—</span></div>
+        <div class="table-scroll"><table><thead><tr><th>Token no.</th><th>Patient</th><th>Doctor</th><th>Priority</th><th>Status</th><th>Wait</th><th>Created</th></tr></thead><tbody id="history-rows"></tbody></table></div>
+        <div class="pagination"><button class="button button-quiet" id="history-previous" type="button">Previous</button><span id="history-page">Page 1</span><button class="button button-quiet" id="history-next" type="button">Next</button></div>
+    </section>
+</main>
+</body>
+</html>
